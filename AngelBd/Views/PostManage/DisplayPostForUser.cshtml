@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AngelBd.Models.PostManagerModel>
+
+@{
+    ViewBag.Title = "DisplayPostForUser";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.Raw(item.PostTitle)
+        </td>
+        <td>
+            @Html.Raw(item.PostContent)
+
+        </td>
+
+    </tr>
+}

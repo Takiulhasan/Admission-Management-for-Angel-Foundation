@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AngelBd.Models.GalleryManagement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Our some recent works shown here</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("admin"))
+    {
+        <p>
+            @Html.ActionLink("Upload New Photo", "Create")
+        </p>
+    }
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Photo)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }*@
+
+</table>
+@{
+
+    string supportedExtensions = "*.jpg,*.gif,*.png,*.bmp,*.jpe,*.jpeg,*.ico";
+
+    foreach (string imgPath in Directory.GetFiles(Server.MapPath("~/Uploads/"), "*.*",
+    SearchOption.AllDirectories).Where(s => supportedExtensions.Contains(Path.GetExtension(s)
+    .ToLower())))
+    {
+        var img = new FileInfo(imgPath);
+        <img style="width: 200px; height: 200px;" src="@Url.Content(String.Format("~/Uploads/{0}", img.Name))" />
+    }
+
+}

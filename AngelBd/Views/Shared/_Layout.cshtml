@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Angel FOundation </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Angel Foundation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pre-School<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Requirements", "PRequirements", "Information")</li>
+                            <li>@Html.ActionLink("Admission", "Admission", "Home")</li>
+
+                            <li>@Html.ActionLink("How-It-Works", "PDetails", "Information")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DayCare<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Requirements", "DRequirements", "Information")</li>
+                            <li>@Html.ActionLink("Admission", "Admission", "Home")</li>
+
+                            <li>@Html.ActionLink("How-It-Works", "DDetails", "Information")</li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Autism <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("What", "AWhat", "Information")</li>
+                            <li>@Html.ActionLink("Behavior", "Behavior", "Information")</li>
+
+                            <li>@Html.ActionLink("Sysmtompt", "Symptompts", "Information")</li>
+                            <li>@Html.ActionLink("Treatment", "Treatment", "Information")</li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Photos", "Index", "GalleryManagements")</li>
+                            @*<li>@Html.ActionLink("Videos", "Videos ", "Information")</li>*@
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admission<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Admisson Form", "Admission", "Home")</li>
+                            <li>@Html.ActionLink("Payment", "Payment", "Information")</li>
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Student List", "Index", "Admissions")</li>
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Posts", "Index", "PostManages")</li>
+                            <li>@Html.ActionLink("Post 2", "Index", "PostManagerModels")</li>
+
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li>@Html.ActionLink("Who we are", "About", "Home")</li>
+
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+
+                        </ul>
+                    </li>
+
+
+
+
+                    @*<li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+
+
+        <li>@Html.ActionLink("Blog", "Blog", "Home")</li>
+
+        <li>@Html.ActionLink("Student", "Student", "Home")</li>
+        <li>@Html.ActionLink("Donate", "Donate", "Home")</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Angel Foundation</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
